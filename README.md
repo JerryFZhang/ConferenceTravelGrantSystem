@@ -14,8 +14,9 @@
 - Save db
     mongoexport --host 127.0.0.1 --port 27017 --db  [dbName] --collection [collectionName] --out [outputFile]
     exmaple: mongoexport --host 127.0.0.1 --port 27017 --db  test --collection user --out /path/to/current/dir/mongo/user.json
-Shut the server down
+- Shut the server down
     ctrl+c
+
 
 # Framworks
 - See package.json
@@ -24,7 +25,7 @@ Shut the server down
 - [cookie-parser tutorial](http://expressjs-book.com/index.html%3Fp=128.html)
 - [mongo shell tutorial](http://www.mkyong.com/mongodb/how-to-create-database-or-collection-in-mongodb/)
 
-#Author
+# Author
 
 
 #License
