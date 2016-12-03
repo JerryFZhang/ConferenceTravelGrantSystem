@@ -1,9 +1,15 @@
-
 node_modules
 
 
 npm-debug.log
 
 
-mongo/*
 
+mongo/_mdb_catalog.wt
+mongo/collection*
+mongo/storage.bson
+mongo/journal/
+mongo/WiredTiger*
+mongo/index*
+/mongo/sizeStorer.wt
+/mongo/mongod.lock
