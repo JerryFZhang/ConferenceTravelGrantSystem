@@ -41,7 +41,7 @@
 	mongoimport --host 127.0.0.1 --port 27017 [dbName] --collection [collectionName] --file [inputFile]
     ```
 	```
-	eg:mongoimport --host 127.0.0.1 --port 27017 --db  test --collection user --out /Users/jerryzhang/Google\ Drive/Study/2016-4-Fall/SEG3102A/3102/mongo/user.json
+	eg:mongoimport --host 127.0.0.1 --port 27017 --db  test --collection user --file /Users/jerryzhang/Google\ Drive/Study/2016-4-Fall/SEG3102A/3102/mongo/user.json
 	```
 	
 # Framworks
