@@ -5,4 +5,12 @@ node_modules
 npm-debug.log
 
 
-mongo/WiredTiger.turtle
+mongo/_*
+mongo/Wire*
+mongo/stor*
+mongo/size*
+mongo/mongo*
+mongo/index*
+mongo/colle*
+mongo/jou*
+mongo/diag*
