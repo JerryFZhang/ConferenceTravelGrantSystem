@@ -68,10 +68,12 @@ app.post('/login', function (req, res) {
     data = JSON.parse(data);
     db.user.find(data, function (err, records) {
         if (err) {
+            console.log("Database Error" + err);
             res.send("Database Error" + err);
         }
         else {
             if (records[0] == undefined) {
+                console.log("User does not exist!");
                 res.send("User does not exist!");
             }
             else {
@@ -105,6 +107,7 @@ app.post('/login', function (req, res) {
                     }
                 }
                 else {
+                    console.log("Wrong Password!");
                     res.send("Wrong Password!");
                 }
             }
