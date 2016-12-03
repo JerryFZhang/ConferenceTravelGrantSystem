@@ -1,8 +1,20 @@
-
 node_modules
-
-
 npm-debug.log
+mongo/*
+!mongo/user.json
 
+mongo/journal/WiredTigerPreplog.0000000002
 
-mongo/WiredTiger.turtle
+mongo/journal/WiredTigerLog.0000000001
+
+mongo/mongod.lock
+
+mongo/storage.bson
+
+mongo/sizeStorer.wt
+
+mongo/WiredTiger
+
+mongo/WiredTiger.lock
+
+mongo/WiredTigerLAS.wt
