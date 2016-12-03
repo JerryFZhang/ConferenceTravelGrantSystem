@@ -18,6 +18,8 @@
   "homepage": "https://github.com/zhang96/3102#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "cookie-parser": "^1.4.3",
+    "mongojs": "^2.4.0",
     "node": "0.0.0"
   },
   "devDependencies": {}
