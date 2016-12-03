@@ -1,4 +1,9 @@
 var express = require('express');
+var cookieParser = require('cookie-parser');
+var mongojs = require("mongojs");
+
+//db Setup
+var db = mongojs('test', ['user']);
 
 var app = express();
 var path = require('path');
@@ -13,6 +18,18 @@ app.set('views', path.join(__dirname, 'views'));
 // Serving all public content only from ./public
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Enable cookie based session.
+//app.use(express.cookieParser('S3CRE7'));
+//app.use(express.cookieSession());
+//app.use(app.router);
+
+//app.use(express.session({
+//  key: 'app.sess',
+//  store: new RedisStore,
+//  secret: 'SEKR37'
+//}));
+
+
 // Default landing page
 app.get('/', function (req, res) {
     res.render('index');
@@ -20,7 +37,7 @@ app.get('/', function (req, res) {
 
 // Sample request.
 app.post('/request', function (req, res) {
-	
+	//parse request
 });
 
 // Custom 404 page.
