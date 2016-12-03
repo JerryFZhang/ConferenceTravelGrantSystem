@@ -1,8 +1,14 @@
-
 node_modules
 
 
 npm-debug.log
 
-mongo
-
+/mongo/WiredTiger*
+/mongo/journal/
+/mongo/diagnostic.data/
+/mongo/mongod.lock
+/mongo/sizeStorer.wt
+/mongo/storage.bson
+/mongo/collection-0-4952701264301466534.wt
+/mongo/_mdb_catalog.wt
+/mongo/index-1-4952701264301466534.wt
