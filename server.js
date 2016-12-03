@@ -1,7 +1,6 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var mongojs = require("mongojs");
-
 var fs = fs = require('fs');
 var engines = require('consolidate');
 //var jsonfile = require('jsonfile');
@@ -39,6 +38,25 @@ app.get('/apply', function (req, res) {
     res.status(200);
     console.log('localhost:3000/apply')
 });
+
+app.get('/admin', function (req, res) {
+    res.render('admin.html');
+    res.status(200);
+    console.log('localhost:3000/admin')
+});
+
+app.get('/requester', function (req, res) {
+    res.render('requester.html');
+    res.status(200);
+    console.log('localhost:3000/requester')
+});
+
+//app.get('/evaluater', function (req, res) {
+//    res.render('evaluater.html');
+//    res.status(200);
+//    console.log('localhost:3000/evaluater')
+//});
+
 // Sample request.
 app.post('/login', function (req, res) {
     res.status(200);
@@ -50,35 +68,46 @@ app.post('/login', function (req, res) {
     data = JSON.parse(data);
     db.user.find(data, function (err, records) {
         if (err) {
-            console.log("User does not exist!")
-        }
-        console.log("User found!")
-        console.log(records[0]);
-        if (records[0].password == req.body.password) {
-            console.log("Password Matched, redirecting....");
-            console.log(records[0].usertype);
-            switch (records[0].usertype){
-                case "admin":
-                    console.log("User will be direcred to admin page!");
-                    res.send("AdminPage needs implementation");
-                    break;
-                    
-                case "requester":
-                    console.log("User will be direcred to requester page!");
-                    res.send("RequesterPage needs implementation");
-                    break;
-                case "evaluater":
-                    console.log("User will be direcred to evaluater page!");
-                    res.send("EvaluaterPage needs implementation");
-                    break;
-                default:
-                    console.log("Error!");
-                    console.log(userType);
-                    break;
-        }
+            res.send("Database Error" + err);
         }
         else {
-            console.log("Wrong Password!");
+            if (records[0] == undefined) {
+                res.send("User does not exist!");
+            }
+            else {
+                console.log("User found!")
+                console.log(records[0]);
+                if (records[0].password == req.body.password) {
+                    console.log("Password Matched, redirecting....");
+                    console.log(records[0].usertype);
+                    switch (records[0].usertype) {
+                    case "admin":
+                        console.log("User will be direcred to admin page!");
+                        res.status(200);
+                        res.send('admin');
+                        break;
+                    case "requester":
+                        console.log("User will be direcred to requester page!");
+                        res.status(200);
+                        res.send('requester');
+                        break;
+                    case "evaluater":
+                        console.log("User will be direcred to evaluater page!");
+                        res.status(200);
+                        res.send('evaluater');
+                        break;
+                    default:
+                        console.log("Error!");
+                        console.log(userType);
+                        res.status(200);
+                        res.send('Invaild User Type')
+                        break;
+                    }
+                }
+                else {
+                    res.send("Wrong Password!");
+                }
+            }
         }
     });
 });
