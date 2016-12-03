@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<!-- general application creation pages-->
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>Admin_main</title>
+      <link rel = "stylesheet" type = "text/css" href="#">
+    </head>
+    <body>
+      <h1>
+
+        <img src ="uottawa_logo.png" width = "100" height = "100" alt = "logo of uottawa">
+        Travel Grant Application System
+        <p class= "search">
+          <label>Search:
+        <input type="search" placeholder = "search query"/> </label>
+        <a href = "#">Sign out</a>
+      </p>
+        </h1>
+        <h1>
+          Save application
+          <script>
+          document.write("<h4>hello "+"who" +" Application_id "+"</h4>");
+
+          </script>
+        </h1>
+           <script>
+
+           var currentdate = new Date();
+           var datetime =currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/"
+                + currentdate.getFullYear();
+           document.writeln("<h4>Application "+"applictaion_id"+" -Started on "+datetime +" - Last Edited: "+datetime+" by who </h4>");
+           </script>
+           <!--create application info-->
+        <form method = "post" action="#">
+          <p>
+
+            <label>Type of presentation:
+              <input type = "text" maxlength = "30" size = "15">
+            </label>
+          </p>
+          <p>
+            <label>Presentation Title:
+              <input type = "text" maxlength = "30" size = "15">
+            </label>
+          </p>
+          <p>
+            <label>Conference Start Date:
+              <input type = "date">
+            </label>
+          </p>
+          <p>
+            <label>Conference End Date:
+              <input type = "date">
+            </label>
+          </p>
+          <p>
+            <label>Website:
+              <input type = "url" placeholder = "http://www.domain-name.com" maxlength = "50">
+            </label>
+          </p>
+          <p>
+            <label>Geographical Zone:
+              <!--google API-->
+            </label>
+          </p>
+          <p>
+            <input type = "submit" value = "Submit">
+            <input type = "reset" value = "Cancel">
+          </p>
+</body>
+</html>
