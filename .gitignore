@@ -9,6 +9,6 @@ npm-debug.log
 /mongo/mongod.lock
 /mongo/sizeStorer.wt
 /mongo/storage.bson
-/mongo/collection-0-4952701264301466534.wt
+/mongo/collection*
 /mongo/_mdb_catalog.wt
-/mongo/index-1-4952701264301466534.wt
+/mongo/index*

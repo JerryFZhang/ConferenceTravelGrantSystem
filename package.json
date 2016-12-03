@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/zhang96/3102#readme",
   "dependencies": {
-<<<<<<< HEAD
     "cookie-parser": "^1.4.3",
     "mongojs": "^2.4.0",
     "express": "^4.14.0",
