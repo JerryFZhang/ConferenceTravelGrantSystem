@@ -94,7 +94,7 @@
        if (uname ==='' && pass ==='') {
          alert("Please enter the email and password");
        } else {
-         $.post("http://localhost:3000/request", {
+         $.post("http://localhost:3000/login", {
            uname: uname,
            password: pass
          }, function(data) {
@@ -104,7 +104,7 @@
              window.location = "http://localhost:3000/users";
            }
            if(data==='admin'){
-             window.location="http://localhost:3000/users";
+             window.location="http://localhost:3000/admin";
            } else {
              window.location = "http://localhost:3000/";
            }
