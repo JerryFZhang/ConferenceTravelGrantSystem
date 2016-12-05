@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- general admin main page-->
+<html>
+   <head>
+
+      <meta charset = "utf-8">
+      <title>Evaluator</title>
+      <link rel = "stylesheet" type = "text/css" href="#">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <h1>
+
+        <img src ="../public/img/uottawa_logo.png" width = "100" height = "100" alt = "logo of uottawa">
+        Travel Grant Application System
+        <p class= "search" >
+          <label>Search:
+        <input type="search" placeholder = "search query"/> </label>
+        <a href = "#">Sign out</a>
+      </p>
+        </h1>
+<h1>
+  Application list:
+</h1>
+<div id=application_list>
+</div>
+          <!--applications which have been created-->
+          <!--fetch from db-->
+
+</body>
+<script>
+$(document).ready(function() {
+  //a and b
+  alert("sssss");
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:3000/get_application_list",
+    data: {},
+    success: function(result) {
+      var $application_list = $("#application_list");
+      $application_list.empty();
+      $.each(result, function(index, value) {
+        $application_list.append("<li><a>" + "hhhhhhhh" + "</a></li>");
+      });
+    }
+  });
+});
+
+
+</script>
+
+</html>
