@@ -140,7 +140,7 @@
                                 </thead>
                                 <tbody>
                                   <tr>
-                                        <td id = "grant_imit_in"></td>
+                                        <td id = "grant_imit"></td>
                                         <td id="category"></td>
                                         <td id="reim_limit"></td>
                                     </tr>
@@ -173,15 +173,19 @@
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 <script>
+$("input:text").change(function() {
+    var value=$("input:text").val();
+    alert(value);
+});
 function insRow()
 {
     var x=document.getElementById('parametertable').insertRow(1);
     var c1=x.insertCell(0);
     var c2=x.insertCell(1);
     var c3=x.insertCell(2);
-    c1.innerHTML="NEW CELL1";
-    c2.innerHTML="NEW CELL2";
-        c3.innerHTML="NEW CELL3";
+    c1.innerHTML=document.getElementById('grant_limit_in').value;
+    c2.innerHTML=document.getElementById('category_in').value;
+        c3.innerHTML=document.getElementById('reim_limit_in').value;
 }
 </script>
 </body>
