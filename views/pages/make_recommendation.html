@@ -50,7 +50,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Hello!</a>
+                <a class="navbar-brand" href="main_page_supervisor.html">Hello!</a>
             </div>
             <!-- /.navbar-header -->
             <div class="navbar-default sidebar" role="navigation">
@@ -84,18 +84,7 @@
           </nav>
             <ul class="nav navbar-top-links navbar-right">
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li class="divider"></li>
-                        <li><a href="notifications.html"><i class="fa fa-bomb fa-fw"></i> notification</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <li class="dropdown">
+          <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
@@ -136,7 +125,8 @@
                                 <div class="col-lg-6">
                                     <form action="#" method = "post" >
                                       <button type="button" class="btn btn-default" id="submit">Approve</button>
-                                        <button type="button" class="btn btn-default" id="return" onclick="">Return to Requester</button>  </div>
+                                        <button type="button" class="btn btn-default" id="refused" onclick = "changeincompletestatus()">Refuse</button>
+                                        <button type="button" class="btn btn-default" id="requestChange" onclick="changerefusedstatus()">Request Change</button>  </div>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
