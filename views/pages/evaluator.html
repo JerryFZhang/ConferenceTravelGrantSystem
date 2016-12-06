@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Evaluation</title>
+
+    <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../public/bootstrap/js/bootstrap.min.js"></script>
+
+       <link rel="stylesheet" href="../public/dist/css/bootstrapValidator.css"/>
+
+       <script type="text/javascript" src="../public/dist/js/bootstrapValidator.js"></script>
+
+
+
+
+    <!-- MetisMenu CSS -->
+    <link href="../public/template/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../public/template/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../public/template/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../public/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../public/template/dist/js/sb-admin-2.js"></script>
+    <script src="../public/Javascript/add_user.js"></script>
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Evaluator</a>
+            </div>
+
+            <!-- /.navbar-top-links -->
+
+            <div id="wrapper">
+
+                <!-- Navigation -->
+                <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">Hello Evaluator!</a>
+                    </div>
+                    <!-- /.navbar-header -->
+
+                    <ul class="nav navbar-top-links navbar-right">
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li class="divider"></li>
+                                <li><a href="notifications.html"><i class="fa fa-bomb fa-fw"></i> notification</a>
+                                </li>
+                            </ul>
+                            <!-- /.dropdown-user -->
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li class="divider"></li>
+                                <li><a href="http://localhost:3000/logout"><i class="fa fa-sign-out fa-fw"></i> Log out</a>
+                                </li>
+                            </ul>
+                            <!-- /.dropdown-user -->
+                        </li>
+                        <!-- /.dropdown -->
+                    </ul>
+                    <!-- /.navbar-top-links -->
+
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li class="sidebar-search">
+                                    <div class="input-group custom-search-form">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                    </div>
+                                    <!-- /input-group -->
+                                </li>
+
+
+                                    <!-- /.nav-second-level -->
+                            </ul>
+                        </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">New User</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          Application List
+                        </div>
+                        <div class="panel-body">
+                          <div class="row" id="application_list">
+
+                          </div>
+                          <div class="row">
+                            <h1 id="title"></h1>
+                            <h3 id="type"></h3>
+                            <h3 id="start"></h3>
+                            <h3 id="end"></h3>
+                            <h3 id="url"></h3>
+                            <div id="applictaion_id"></div>
+                          </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                  <form id="attributeForm" method="post" class="form-horizontal"
+                                      data-bv-message="This value is not valid"
+                                      data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                                      data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                                      data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+
+
+                                      <div class="form-group">
+                                        <label class="col-lg-3 control-label">Final Decision</label>
+                                        <div class="col-lg-5 center">
+                                        <select id="userType">
+                                   <option value="approve">Approve</option>
+                                   <option value="refuse">Refuse</option>
+                                   </select>
+                                      </div>
+                                    </div>
+
+                                        <button type="submit"id="submit"  class="btn btn-default">Submit</button>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+
+</body>
+<script>
+$(document).ready(function() {
+var appid=0;
+  $("#requesters_application_list").on('click', '.spnSelected', function() {
+    var self = $(this).closest("tr");
+    var appid = self.find(".spnSelected").attr("appid");
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:3000/get_application",
+      data: {
+        appid:appid
+      },
+      success: function(result) {
+        appid=result.appid;
+        var $type = $("#type");
+        $type.empty();
+        $type.text("Type: "+result.type);
+        $("#title").text("Title: "+result.title);
+        $("#start").text("Start date: "+result.start);
+        $("#end").text("End date: "+result.end);
+        $("#url").text("URL: "+result.url);
+        $("#applictaion_id").append("<h3 class='spnSelected'>"+result.appid+"</h3>");
+          }
+        });
+      });
+
+      $("#submit").click(function() {
+          type = $("#userType").val();
+          id=appid;
+              $.post("http://localhost:3000/final_decision", {
+                  Decision: type,
+                  appid:id
+              }, function(data) {
+                  // if (data === 'user') {
+                  //   alert(data+"data");
+                  //   window.location = "http://localhost:3000/users";
+                  // }
+                  // if(data==='admin'){
+                  //   window.location="http://localhost:3000/admin";
+                  // }
+                  // if(data==='evaluator'){
+                  //   window.location="http://localhost:3000/evaluator";
+                  // } else {
+                  //   window.location = "http://localhost:3000/";
+                  // }
+              });
+
+      });
+
+  //a and b
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:3000/get_application_list_all",
+    data: {},
+    success: function(result) {
+      var $application_list = $("#application_list");
+      $application_list.empty();
+      $.each(result, function(index, value) {
+        $application_list.append("<tr><td><span class='spnSelected' appid='"+result[index].appid+"'>"+result[index].title+"</span></td></tr>");
+      });
+    }
+  });
+});
+
+
+</script>
+
+
+
+</html>
