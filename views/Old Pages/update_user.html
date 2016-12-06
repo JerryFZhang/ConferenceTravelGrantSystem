@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<!-- general application creation pages-->
+<html>
+   <head>
+     <link href="../public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+     <!-- Custom Fonts -->
+     <link href="../public/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+         <!-- Plugin CSS -->
+     <link href="../public/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+     <!-- Theme CSS -->
+     <link href="../public/css/creative.css" rel="stylesheet">
+
+     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+     <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+     <![endif]-->
+
+ </head>
+      <meta charset = "utf-8">
+      <title>Admin Add User</title>
+      <link rel = "stylesheet" type = "text/css" href="#">
+    <body>
+      <h1>
+
+        <img src ="../public/img/uottawa_logo.png" width = "100" height = "100" alt = "logo of uottawa">
+        Travel Grant Application System
+        <p class= "search">
+          <label>Search:
+        <input type="search" placeholder = "search query"/> </label>
+        <a href = "http://localhost:3000/logout" method="get">Sign out</a>
+      </p>
+        </h1>
+        <h1>
+          Find User
+          <script>
+          // document.write("<h4>hello "+"who" +" Application_id "+"</h4>");
+
+          </script>
+        </h1>
+           <script>
+
+          //  var currentdate = new Date();
+          //  var datetime =currentdate.getDate() + "/"
+          //       + (currentdate.getMonth()+1)  + "/"
+          //       + currentdate.getFullYear();
+          //  document.writeln("<h4>Application "+"applictaion_id"+" -Started on "+datetime +" - Last Edited: "+datetime+" by who </h4>");
+           </script>
+           <!--create application info-->
+          <p>
+            <label>Enter user email:
+              <input type = "text" id="s_email" maxlength = "30" size = "15">
+            </label>
+          </p>
+          <p>
+            <input type = "submit" id="search" value = "Search">
+          </p>
+
+
+          <p>
+
+            <label>First name:
+              <input type = "text" id="fname" maxlength = "30" size = "15">
+            </label>
+          </p>
+          <p>
+            <label>Last name:
+              <input type = "text" id="lname" maxlength = "30" size = "15">
+            </label>
+          </p>
+          <p>
+            <label>Password
+              <input type = "password" id="pwd">
+            </label>
+          </p>
+          <p>
+            <input type = "submit" id="submit" value = "Submit">
+            <input type = "reset" value = "Cancel">
+          </p>
+</body>
+<script>
+$(document).ready(function() {
+var fname,lname,email,id,pwd;
+$("#submit").click(function() {
+fname = $("#fname").val();
+lname = $("#lname").val();
+pwd = $("#pwd").val();
+
+if (false) {
+alert("Please enter the email and password");
+} else {
+$.post("http://localhost:3000/update_user", {
+ fname: fname,
+ lname: lname,
+ pwd: pwd
+}, function(data) {
+ alert("success!");
+
+});
+}
+});
+});
+
+$(document).ready(function() {
+var semail;
+$("#search").click(function() {
+semail = $("#s_email").val();
+
+
+if (semail==="") {
+alert("Please enter the email");
+} else {
+$.post("http://localhost:3000/find_user", {
+ email: semail
+}, function(data) {
+ alert("success!");
+
+});
+}
+});
+});
+
+
+</script>
+</html>

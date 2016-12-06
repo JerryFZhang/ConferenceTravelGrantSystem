@@ -1,7 +1,7 @@
 # 3102
 
 
-#To start:
+# To start:
 
 1. cd to current dir
     
@@ -49,11 +49,12 @@
 # Useful References
 - [cookie-parser tutorial](http://expressjs-book.com/index.html%3Fp=128.html)
 - [mongo shell tutorial](http://www.mkyong.com/mongodb/how-to-create-database-or-collection-in-mongodb/)
+- [express-session](https://github.com/expressjs/session)
 
 # Author
 CAO team.
 
-#License
+# License
 MIT, see LICENSE.txt.
 
 

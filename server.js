@@ -6,6 +6,7 @@ var mongojs = require("mongojs");
 var fs = fs = require('fs');
 var engines = require('consolidate');
 var bodyParser = require('body-parser');
+//
 //db Setup
 var db = mongojs('test', ['user']);
 var app = express();
@@ -28,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   resave: false,
 //    saveUninitialized: false,
 //    secret: credentials.cookieSecret,
-//
+
 //}));
 //app.use(express.cookieParser('S3CRE7'));
 //app.use(express.cookieSession());
@@ -53,6 +54,14 @@ app.get('/', function (req, res) {
     // sess.stats = true;
   //  console.log(sess.stats);
   //  console.log(sess);
+//    console.log(req.session);
+//    req.session.username = null;
+//    sess = req.session;
+    //200 OK
+    res.status(200);
+    console.log('GET - localhost:3000/');
+//    console.log('---stat1--');
+//    console.log(sess.stats);
 //    console.log('---stat--');
 //    console.log('---id1--');
 //    console.log(sess.id);
@@ -107,6 +116,14 @@ app.get('/request', function (req, res) {
 });
 
 
+// Serve application page
+app.get('/apply', function (req, res) {
+    //200 OK
+    res.status(200);
+    console.log('GET - localhost:3000/apply')
+        //Serve content
+    res.render('apply.html');
+});
 // Serve application page
 app.get('/apply', function (req, res) {
     //200 OK
