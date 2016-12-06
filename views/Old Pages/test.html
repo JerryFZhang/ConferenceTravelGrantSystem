@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add User</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <meta charset = "utf-8">
+  <title>Admin Add User</title>
+  <link rel = "stylesheet" type = "text/css" href="#">
+</head>
+<body>
+  <h1>
+
+    <img src ="../public/img/uottawa_logo.png" width = "100" height = "100" alt = "logo of uottawa">
+    Travel Grant Application System
+    <p class= "search">
+      <label>Search:
+    <input type="search" placeholder = "search query"/> </label>
+    <a href = "localhost:3000">Sign out</a>
+  </p>
+    </h1>
+    <h1>
+      Add User
+      <script>
+      // document.write("<h4>hello "+"who" +" Application_id "+"</h4>");
+
+      </script>
+    </h1>
+       <script>
+
+      //  var currentdate = new Date();
+      //  var datetime =currentdate.getDate() + "/"
+      //       + (currentdate.getMonth()+1)  + "/"
+      //       + currentdate.getFullYear();
+      //  document.writeln("<h4>Application "+"applictaion_id"+" -Started on "+datetime +" - Last Edited: "+datetime+" by who </h4>");
+       </script>
+       <!--create application info-->
+       <div class="col-md-9">
+       <form data-toggle="validator" role="form">
+     <div class="form-group">
+       <label for="inputName" class="control-label">First Name</label>
+       <input type="text" class="form-control" id="fname" required>
+     </div>
+     <div class="form-group">
+       <label for="inputName" class="control-label">Last Name</label>
+       <input type="text" class="form-control" id="lname" required>
+     </div>
+     <div class="form-group">
+       <label for="inputEmail" class="control-label">Email</label>
+       <input type="email" class="form-control" id="email" placeholder="Email" data-error="Bruh, that email address is invalid" required>
+       <div class="help-block with-errors"></div>
+     </div>
+     <div class="form-group">
+       <label for="inputPassword" class="control-label">Password</label>
+       <div class="form-inline row">
+         <div class="form-group col-sm-6">
+           <input type="password" data-minlength="6" class="form-control" id="pwd" placeholder="Password" required>
+           <div class="help-block">Minimum of 6 characters</div>
+         </div>
+         <div class="form-group col-sm-6">
+           <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
+           <div class="help-block with-errors"></div>
+         </div>
+       </div>
+     </div>
+     <div class="form-group">
+       <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+     </div>
+   </form>
+ </div>
+</body>
+<script>
+$(document).ready(function() {
+var fname,lname,email,id,pwd;
+$("#submit").click(function() {
+fname = $("#fname").val();
+lname = $("#lname").val();
+email = $("#email").val();
+id = $("#ID").val();
+pwd = $("#pwd").val();
+
+if (false) {
+alert("Please enter the email and password");
+} else {
+$.post("http://localhost:3000/request", {
+fname: fname,
+lname: lname,
+email: email,
+id: id,
+pwd: pwd,
+}, function(data) {
+alert("success!");
+// if (data === 'user') {
+//   alert(data+"data");
+//   window.location = "http://localhost:3000/users";
+// }
+// if(data==='admin'){
+//   window.location="http://localhost:3000/admin";
+// }
+// if(data==='evaluator'){
+//   window.location="http://localhost:3000/evaluator";
+// } else {
+//   window.location = "http://localhost:3000/";
+// }
+});
+}
+});
+});
+
+
+
+</script>
+
+
+</body>
+</html>
