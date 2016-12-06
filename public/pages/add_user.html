@@ -330,7 +330,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Create User</h1>
+                    <h1 class="page-header">New User</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -339,7 +339,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                          New Info
+                          New User Info
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -347,41 +347,41 @@
                                     <form action="#" method = "post" >
                                         <div class="form-group">
                                             <label>first name:
-                                            <input class="form-control" type = "text" required>
+                                            <input class="form-control" type = "text" id="fname" required>
                                             </label>
                                             <label>Last name:
-                                            <input class="form-control" type = "text" required>
+                                            <input class="form-control" type = "text" id="lname" required>
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input class="form-control" placeholder="name@doamin-name.com" type = "email" required>
+                                            <input class="form-control"  id="email" placeholder="name@doamin-name.com" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Login id:
-                                            <input class="form-control" type = "text" required>
+                                            <input class="form-control"id="ID" type = "text" required>
                                             </label>
                                             <label>Password:
-                                            <input class="form-control" type = "password" required>
+                                            <input class="form-control"  id="pwd" type = "password" required>
                                             </label>
                                         </div>
                                         <div class="form-group">
                                           <details>
                                             <summary >For Requester</summary>
                                             <p><label>Student Number:
-                                            <input class="form-control" type = "text">
+                                            <input class="form-control" type = "text" id = "student_id">
                                             </label>
                                           </p>
                                           <p><label>Academic unit:
-                                            <input class="form-control" type = "password">
+                                            <input class="form-control" type = "text" id = "academic_unit">
                                             </label>
                                           </p>
                                           <p><label>Program:
-                                          <input class="form-control" type = "text">
+                                          <input class="form-control" type = "text" id= "program">
                                           </label>
                                         </p>
                                         <p><label>Session number:
-                                          <input class="form-control" type = "password">
+                                          <input class="form-control" type = "text"id = "session_num">
                                           </label>
                                         </p>
                                         </details></div>
@@ -389,11 +389,11 @@
                                           <details>
                                             <summary>For Superviosr</summary>
                                             <p><label>Employee Number:
-                                            <input class="form-control" type = "text">
+                                            <input class="form-control" type = "text" id="semp_num">
                                             </label>
                                           </p>
                                           <p><label>Grant Account Numbers:
-                                            <input class="form-control" type = "password">
+                                            <input class="form-control" type = "text" id="grant_acc_num">
                                             </label>
                                           </p>
 
@@ -402,11 +402,11 @@
                                           <details>
                                             <summary>For FGPS Staff</summary>
                                             <p><label>Employee Number:
-                                            <input class="form-control" type = "text">
+                                            <input class="form-control" type = "text" id="femp_num">
                                             </label>
                                           </p>
                                         </details></div>
-                                        <button type="submit" class="btn btn-default">Submit</button>
+                                        <button type="submit"id="submit"  class="btn btn-default">Submit</button>
                                         <button type="reset" class="btn btn-default">Reset</button>  </div>
                                     </form>
                                 </div>
@@ -427,20 +427,44 @@
         <!-- /#page-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
 
 </body>
+<script>
+$(document).ready(function() {
+var fname,lname,email,id,pwd;
+$("#submit").click(function() {
+fname = $("#fname").val();
+lname = $("#lname").val();
+email = $("#email").val();
+id = $("#ID").val();
+pwd = $("#pwd").val();
+if (false) {
+alert("Please enter the email and password");
+} else {
+$.post("http://localhost:3000/request", {
+ fname: fname,
+ lname: lname,
+ email: email,
+ id: id,
+ pwd: pwd,
+}, function(data) {
+ alert("success!");
+ // if (data === 'user') {
+ //   alert(data+"data");
+ //   window.location = "http://localhost:3000/users";
+ // }
+ // if(data==='admin'){
+ //   window.location="http://localhost:3000/admin";
+ // }
+ // if(data==='evaluator'){
+ //   window.location="http://localhost:3000/evaluator";
+ // } else {
+ //   window.location = "http://localhost:3000/";
+ // }
+});
+}
+});
+});
+</script>
 
 </html>
