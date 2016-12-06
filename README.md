@@ -41,7 +41,8 @@
 	
 7. Shut the server down
     
-	ctrl+c
+    ctrl+c
+    
 
 # Framworks
 - See package.json
@@ -55,6 +56,7 @@
 CAO team.
 
 # License
+
 MIT, see LICENSE.txt.
 
 
