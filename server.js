@@ -13,7 +13,10 @@ var app = express();
 var path = require('path');
 //session var
 var sess;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master-jerry
 // Set the default port to localhost 3000.
 app.set('port', process.env.PORT || 3000);
 // View engine setup
@@ -29,7 +32,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   resave: false,
 //    saveUninitialized: false,
 //    secret: credentials.cookieSecret,
+<<<<<<< HEAD
 
+=======
+//    
+>>>>>>> origin/master-jerry
 //}));
 //app.use(express.cookieParser('S3CRE7'));
 //app.use(express.cookieSession());
@@ -43,6 +50,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res) {
 //    console.log("req.headers.cookie");
 //    console.log(req.headers.cookie);
+<<<<<<< HEAD
    console.log(req);
 //    req.session.username = null;
   //  sess = req.session;
@@ -54,6 +62,8 @@ app.get('/', function (req, res) {
     // sess.stats = true;
   //  console.log(sess.stats);
   //  console.log(sess);
+=======
+>>>>>>> origin/master-jerry
 //    console.log(req.session);
 //    req.session.username = null;
 //    sess = req.session;
@@ -97,6 +107,7 @@ app.get('/', function (req, res) {
         res.render('index.html');
 //    }
 });
+<<<<<<< HEAD
 app.post('/request', function (req, res) {
     //200 OK
     res.status(200);
@@ -132,6 +143,16 @@ app.get('/apply', function (req, res) {
         //Serve content
     res.render('apply.html');
 });
+=======
+// Serve application page
+app.get('/apply', function (req, res) {
+    //200 OK
+    res.status(200);
+    console.log('GET - localhost:3000/apply')
+        //Serve content
+    res.render('apply.html');
+});
+>>>>>>> origin/master-jerry
 // Serve admin page
 app.get('/admin', function (req, res) {
 //    sess = req.session;
