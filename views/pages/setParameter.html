@@ -129,7 +129,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="parametertable">
                                 <thead>
                                     <tr>
                                         <th>Grant Limit</th>
@@ -140,12 +140,20 @@
                                 </thead>
                                 <tbody>
                                   <tr>
-                                        <td id = "grant_imit"></td>
+                                        <td id = "grant_imit_in"></td>
                                         <td id="category"></td>
                                         <td id="reim_limit"></td>
                                     </tr>
+                                    <tr>
+
+    <td><input type="text" id="grant_limit_in"/></td>
+    <td><input type="text" id="category_in"/></td>
+    <td><input  type="text" id="reim_limit_in" /></td>
+    <td><input type="button" id="addparmameter" value="Add" onclick="insRow()"/></td>
+</tr>
                                 </tbody>
-                            </table>  </div>
+                            </table>
+                           </div> </div> </div> </div> </div> </div>
     <!-- /#wrapper -->
 
     <!-- jQuery -->
@@ -164,7 +172,18 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-
+<script>
+function insRow()
+{
+    var x=document.getElementById('parametertable').insertRow(1);
+    var c1=x.insertCell(0);
+    var c2=x.insertCell(1);
+    var c3=x.insertCell(2);
+    c1.innerHTML="NEW CELL1";
+    c2.innerHTML="NEW CELL2";
+        c3.innerHTML="NEW CELL3";
+}
+</script>
 </body>
 
 </html>
