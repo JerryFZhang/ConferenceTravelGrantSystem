@@ -30,20 +30,52 @@
           <!--applications which have been created-->
           <!--fetch from db-->
 
+<!-- application goes here -->
+<div>
+  <h1 id="title"></h1>
+  <h3 id="type"></h3>
+  <h3 id="start"></h3>
+  <h3 id="end"></h3>
+  <h3 id="url"></h3>
+  <div id="applictaion_id"></div>
+</div>
+
 </body>
 <script>
 $(document).ready(function() {
+
+  $("#requesters_application_list").on('click', '.spnSelected', function() {
+    var self = $(this).closest("tr");
+    var appid = self.find(".spnSelected").attr("appid");
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:3000/get_application",
+      data: {
+        appid:appid
+      },
+      success: function(result) {
+        var $type = $("#type");
+        $type.empty();
+        $type.text("Type: "+result.type);
+        $("#title").text("Title: "+result.title);
+        $("#start").text("Start date: "result.start);
+        $("#end").text("End date: "+result.end);
+        $("#url").text("URL: "+result.url);
+        $("#applictaion_id").append("<h3 class='spnSelected'>"+result.appid+"</h3>");
+          }
+        });
+      });
+
   //a and b
-  alert("sssss");
   $.ajax({
     type: "GET",
-    url: "http://localhost:3000/get_application_list",
+    url: "http://localhost:3000/get_application_list_all",
     data: {},
     success: function(result) {
       var $application_list = $("#application_list");
       $application_list.empty();
       $.each(result, function(index, value) {
-        $application_list.append("<li><a>" + "hhhhhhhh" + "</a></li>");
+        $application_list.append("<tr><td><span class='spnSelected' appid='"+result[index].appid+"'>"+result[index].title+"</span></td></tr>");
       });
     }
   });
