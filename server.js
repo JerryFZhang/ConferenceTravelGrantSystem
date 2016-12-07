@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 //
 //db Setup
 var db = mongojs('test', ['user', 'application']);
+//var db = mongojs('admin:adminisdead@ds129028.mlab.com:29028/ctgs', ['user', 'application'])
 var app = express();
 var path = require('path');
 //session var
