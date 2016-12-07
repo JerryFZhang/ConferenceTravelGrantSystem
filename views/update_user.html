@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Update User</title>
+
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+           <link rel="stylesheet" href="dist/css/bootstrapValidator.css"/>
+
+           <script type="text/javascript" src="dist/js/bootstrapValidator.js"></script>
+
+
+
+
+        <!-- MetisMenu CSS -->
+        <link href="template/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="template/dist/css/sb-admin-2.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="template/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="vendor/metisMenu/metisMenu.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="template/dist/js/sb-admin-2.js"></script>
+    <script src="Javascript/update_user.js"></script>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Hey</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+
+
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div id="wrapper">
+
+                <!-- Navigation -->
+                <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">Hello Administrator</a>
+                    </div>
+                    <!-- /.navbar-header -->
+
+                    <ul class="nav navbar-top-links navbar-right">
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li class="divider"></li>
+                                <li><a href="notifications.html"><i class="fa fa-bomb fa-fw"></i> notification</a>
+                                </li>
+                            </ul>
+                            <!-- /.dropdown-user -->
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li class="divider"></li>
+                                <li><a href="http://localhost:3000/logout"><i class="fa fa-sign-out fa-fw"></i> Log out</a>
+                                </li>
+                            </ul>
+                            <!-- /.dropdown-user -->
+                        </li>
+                        <!-- /.dropdown -->
+                    </ul>
+                    <!-- /.navbar-top-links -->
+
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li class="sidebar-search">
+                                    <div class="input-group custom-search-form">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                    </div>
+                                  </li>
+                                  <li>
+                                      <a href="http://localhost:3000/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                  </li>
+                                  <li>
+                                      <a href="http://localhost:3000/create_user_page"><i class="fa fa-bar-chart-o fa-fw"></i> Add User</a>
+                                      <!-- /.nav-second-level -->
+                                  </li>
+                                  <li>
+                                      <a href="http://localhost:3000/update_user_page"><i class="fa fa-table fa-fw"></i> Update User</a>
+                                  </li>
+                                  <li>
+                                      <a href="http://localhost:3000/set_parameter_page"><i class="fa fa-edit fa-fw"></i>Set Parameter</a>
+                                  </li>
+                            </ul>
+                        </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Update User information</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="row">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  Search User (Please type in the user's email)
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="input-group">
+                        <input type="text" id="s_email" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                        <button id="search" class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          Update User
+                        </div>
+                        <div class="panel-body">
+                          <div class="row">
+                              <div class="col-lg-6">
+                                <form id="attributeForm" method="post" class="form-horizontal"
+                                    data-bv-message="This value is not valid"
+                                    data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                                    data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                                    data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Full name</label>
+                                        <div class="col-lg-4">
+                                            <input id="fname" type="text" class="form-control" name="firstName" placeholder="First name"
+                                                data-bv-notempty="true"
+                                                data-bv-notempty-message="The first name is required and cannot be empty" />
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input id="lname" type="text" class="form-control" name="lastName" placeholder="Last name"
+                                                data-bv-notempty="true"
+                                                data-bv-notempty-message="The last name is required and cannot be empty" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">ID</label>
+                                        <div class="col-lg-5">
+                                            <input id="ID" type="text" class="form-control" name="username" readonly="true"
+                                                data-bv-message="The username is not valid"
+
+                                                data-bv-notempty="true"
+                                                data-bv-notempty-message="The username is required and cannot be empty"
+
+                                                data-bv-regexp="true"
+                                                data-bv-regexp-regexp="[a-zA-Z0-9_\.]+"
+                                                data-bv-regexp-message="The username can only consist of alphabetical, number, dot and underscore"
+
+                                                data-bv-stringlength="true"
+                                                data-bv-stringlength-min="6"
+                                                data-bv-stringlength-max="30"
+                                                data-bv-stringlength-message="The username must be more than 6 and less than 30 characters long"
+
+                                                data-bv-different="true"
+                                                data-bv-different-field="password"
+                                                data-bv-different-message="The username and password cannot be the same as each other" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Email address</label>
+                                        <div class="col-lg-5">
+                                            <input id="email" class="form-control" name="email" type="email" readonly="true"
+                                                data-bv-emailaddress="true"
+                                                data-bv-emailaddress-message="The input is not a valid email address" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Password</label>
+                                        <div class="col-lg-5">
+                                            <input id="pwd" type="password" class="form-control" name="password"
+                                                data-bv-notempty="true"
+                                                data-bv-notempty-message="The password is required and cannot be empty"
+
+                                                data-bv-identical="true"
+                                                data-bv-identical-field="confirmPassword"
+                                                data-bv-identical-message="The password and its confirm are not the same"
+
+                                                data-bv-different="true"
+                                                data-bv-different-field="username"
+                                                data-bv-different-message="The password cannot be the same as username" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">Retype password</label>
+                                        <div class="col-lg-5">
+                                            <input type="password" id="pwd2" class="form-control" name="confirmPassword"
+                                                data-bv-notempty="true"
+                                                data-bv-notempty-message="The confirm password is required and cannot be empty"
+
+                                                data-bv-identical="true"
+                                                data-bv-identical-field="password"
+                                                data-bv-identical-message="The password and its confirm are not the same"
+
+                                                data-bv-different="true"
+                                                data-bv-different-field="username"
+                                                data-bv-different-message="The password cannot be the same as username" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label class="col-lg-3 control-label">User Type</label>
+                                      <div class="col-lg-5 center">
+                                      <select id="userType">
+                                 <option value="admin">Admin</option>
+                                 <option value="Requester">Requester</option>
+                                 <option value="Evaluator">Evaluator</option>
+                                 </select>
+                                    </div>
+                                  </div>
+
+
+
+                                      <button type="submit"id="submit"  class="btn btn-default">Submit</button>
+                                      <button type="reset" class="btn btn-default">Reset</button>
+                                      <button type="submit" id="delete" class="btn btn-default">Delete User</button>
+                                    </div>
+                                  </form>
+                              </div>
+                              <!-- /.col-lg-6 (nested) -->
+
+                              <!-- /.col-lg-6 (nested) -->
+                          </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+
+
+
+
+</body>
+
+
+</html>

@@ -18,3 +18,7 @@ mongo/WiredTiger
 mongo/WiredTiger.lock
 
 mongo/WiredTigerLAS.wt
+
+public/__MAC*
+
+
