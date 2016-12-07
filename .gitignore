@@ -1,7 +1,7 @@
 node_modules
 npm-debug.log
 mongo/*
-!mongo/user.json
+!mongo/*.json
 
 mongo/journal/WiredTigerPreplog.0000000002
 
