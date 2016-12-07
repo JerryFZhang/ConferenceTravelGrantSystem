@@ -53,9 +53,9 @@ CTGS is a course project for SEG3102, built using Nodejs, Express.js, MongoDB an
 - [express-session](https://github.com/expressjs/session)
 
 # Author
-[Rui Liu](https://github.com/RayLLiu) - Front-end Development & Intergration
-[Gin Kwan](https://github.com/GinKwan) - Front-end Development & UI designing
-[Fengwei Zhang](https://github.com/zhang96) - Backend Development & Database Management
+- [Rui Liu](https://github.com/RayLLiu) - Front-end Development & Intergration
+- [Gin Kwan](https://github.com/GinKwan) - Front-end Development & UI designing
+- [Fengwei Zhang](https://github.com/zhang96) - Backend Development & Database Management
 
 # License
 
