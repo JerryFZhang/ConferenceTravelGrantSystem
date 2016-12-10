@@ -150,9 +150,9 @@
                           Application List
                         </div>
                         <div class="panel-body">
-                          <div class="row" id="application_list">
+                          <table class="row" id="application_list">
 
-                          </div>
+                          </table>
                           <div class="row">
                             <h1 id="title"></h1>
                             <h3 id="type"></h3>
@@ -205,9 +205,10 @@
 <script>
 $(document).ready(function() {
 var appid=0;
-  $("#requesters_application_list").on('click', '.spnSelected', function() {
+  $("#application_list").on('click', '.spnSelected', function() {
     var self = $(this).closest("tr");
     var appid = self.find(".spnSelected").attr("appid");
+    
     $.ajax({
       type: "POST",
       url: "http://localhost:3000/get_application",
@@ -215,15 +216,22 @@ var appid=0;
         appid:appid
       },
       success: function(result) {
+        alert(JSON.stringify(result));
+
         appid=result.appid;
         var $type = $("#type");
         $type.empty();
         $type.text("Type: "+result.type);
+        $("#title").empty();
         $("#title").text("Title: "+result.title);
+        $("#start").empty();
         $("#start").text("Start date: "+result.start);
+        $("#end").empty();
         $("#end").text("End date: "+result.end);
+        $("#url").empty();
         $("#url").text("URL: "+result.url);
-        $("#applictaion_id").append("<h3 class='spnSelected'>"+result.appid+"</h3>");
+        $("#applictaion_id").empty();
+        $("#applictaion_id").append("<h3 class='spnSelected'>application id: "+result.appid+"</h3>");
           }
         });
       });
@@ -260,7 +268,7 @@ var appid=0;
       var $application_list = $("#application_list");
       $application_list.empty();
       $.each(result, function(index, value) {
-        $application_list.append("<tr><td><span class='spnSelected' appid='"+result[index]._id+"'>"+result[index].presentation_title+"</span></td></tr>");
+        $application_list.append("<tr><td>"+index+"    </td><td><span class='spnSelected' appid='"+result[index]._id+"'>"+result[index].presentation_title+"</span></td></tr>");
       });
     }
   });
