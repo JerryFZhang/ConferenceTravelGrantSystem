@@ -2,7 +2,7 @@ var express = require('express');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var mongojs = require("mongojs");
-//
+var compression = require('compression');
 var fs = fs = require('fs');
 var engines = require('consolidate');
 var bodyParser = require('body-parser');
@@ -30,7 +30,9 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 // Parsing coming JSON object
-app.use(bodyParser());
+app.use(compression());
+// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 // Serving all public content only from ./public
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
@@ -93,18 +95,25 @@ app.get('/apply', function (req, res) {
         //Serve content
     res.render('apply.html');
 });
-app.get('/create_user_page', function (req, res) {
+app.get('/create-user', function (req, res) {
     //200 OK
     res.status(200);
-    console.log('GET - localhost:3000/create_user_page')
+    console.log('GET - localhost:3000/create_user')
         //Serve content
     res.render('add_user.html');
 });
-app.get('/update_user_page', function (req, res) {
+app.get('/update-user', function (req, res) {
     //200 OK
     res.status(200);
-    console.log('GET - localhost:3000/update_user_page')
+    console.log('GET - localhost:3000/update_user')
         //Serve content
+    res.render('update_user.html');
+});
+app.get('/set-parameter', function (req, res) {
+    //200 OK
+    res.status(200);
+    console.log('GET - localhost:3000/update_user')
+    //Serve content
     res.render('update_user.html');
 });
 app.get('/admin', function (req, res) {
@@ -150,11 +159,11 @@ app.get('/requester', function (req, res) {
         //Serve content
     res.render('requester.html');
 });
-app.get('/student_application_status.html', function (req, res) {
+app.get('/student-application-status', function (req, res) {
     res.render('student_application_status.html');
 });
 // Temporar  /get_application_list_all
-app.get('/get_application_list_all', function (req, res) {
+app.get('/get-application-list-all', function (req, res) {
     db.application.find(function (err, records) {
         if (err) {
             console.log("Database Error" + err);
@@ -261,7 +270,7 @@ app.post('/register', function (req, res) {
 //    res.render('evaluator.html');
 //});
 // Recieve and parse password.
-app.post('/login', function (req, res) {
+app.post('/login',              function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/login')
@@ -340,7 +349,7 @@ app.post('/login', function (req, res) {
     });
     //    }
 });
-app.post('/final_decision', function (req, res) {
+app.post('/final-decision',     function (req, res) {
     //200 OK
     res.status(200);
     //get user email by query user
@@ -377,7 +386,7 @@ app.post('/final_decision', function (req, res) {
     //Serve content
     res.render('evaluator.html');
 });
-app.post('/get_application', function (req, res) {
+app.post('/get-application',    function (req, res) {
     //200 OK
     
     res.status(200);
@@ -397,7 +406,7 @@ app.post('/get_application', function (req, res) {
     });
 //    res.render('register.html');
 });
-app.post('/add_user', function (req, res) {
+app.post('/add-user',           function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/add_user')
@@ -423,7 +432,7 @@ app.post('/add_user', function (req, res) {
     db.user.insert(data);
     res.render("add_user.html")
 });
-app.post('/delete_user', function (req, res) {
+app.post('/delete-user',        function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/delete_user')
@@ -440,26 +449,26 @@ app.post('/delete_user', function (req, res) {
         id: idI
     });
 });
-app.post('/submit', function (req, res) {
+app.post('/submit',             function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/submit')
         //Parse content
 });
-app.post('/update_application', function (req, res) {
+app.post('/update-application', function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/update_application')
         //Parse content
 });
-app.post('/request', function (req, res) {
+app.post('/request',            function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/request');
     console.log(req.body);
     //Parse content
 });
-app.post('/find_user', function (req, res) {
+app.post('/find-user',          function (req, res) {
     //200 OK
     console.log(req.body.email);
     db.user.find({

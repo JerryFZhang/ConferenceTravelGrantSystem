@@ -102,7 +102,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-user">
                                 <li class="divider"></li>
-                                <li><a href="http://localhost:3000/logout"><i class="fa fa-sign-out fa-fw"></i> Log out</a>
+                                <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> Log out</a>
                                 </li>
                             </ul>
                             <!-- /.dropdown-user -->
@@ -210,7 +210,7 @@ var appid=0;
     var appid = self.find(".spnSelected").attr("appid");
     $.ajax({
       type: "POST",
-      url: "http://localhost:3000/get_application",
+      url: "http://localhost:3000/get-application",
       data: {
         appid:appid
       },
@@ -231,7 +231,7 @@ var appid=0;
       $("#submit").click(function() {
           type = $("#userType").val();
           id=appid;
-              $.post("http://localhost:3000/final_decision",{
+              $.post("http://localhost:3000/final-decision",{
                   Decision: type,
                   appid:id
               }, function(data) {
@@ -254,7 +254,7 @@ var appid=0;
   //a and b
   $.ajax({
     type: "GET",
-    url: "http://localhost:3000/get_application_list_all",
+    url: "http://localhost:3000/get-application-listall",
     data: {},
     success: function(result) {
       var $application_list = $("#application_list");

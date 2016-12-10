@@ -74,7 +74,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li class="divider"></li>
-                        <li><a href="notifications.html"><i class="fa fa-bomb fa-fw"></i> notification</a>
+                        <li><a href="notifications"><i class="fa fa-bomb fa-fw"></i> notification</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -109,17 +109,17 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="http://localhost:3000/admin_page"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="http://localhost:3000/create_user_page"><i class="fa fa-bar-chart-o fa-fw"></i> Add User</a>
+                            <a href="create-user"><i class="fa fa-bar-chart-o fa-fw"></i> Add User</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="http://localhost:3000/update_user_page"><i class="fa fa-table fa-fw"></i> Update User</a>
+                            <a href="update-user"><i class="fa fa-table fa-fw"></i> Update User</a>
                         </li>
                         <li>
-                            <a href="http://localhost:3000/set_parameter_page"><i class="fa fa-edit fa-fw"></i>Set Parameter</a>
+                            <a href="set-parameter"><i class="fa fa-edit fa-fw"></i>Set Parameter</a>
                         </li>
                             <!-- /.nav-second-level -->
                     </ul>
@@ -196,7 +196,7 @@ $(document).ready(function() {
   if (false) {
   alert("Please enter the email and password");
   } else {
-  $.post("http://localhost:3000/set_parameter", {
+  $.post("set-parameter", {
   grand_limit: grand_limit,
   category: category,
   reim_limit_in: reim_limit_in
