@@ -9,7 +9,6 @@ $(document).ready(function() {
         fname = $("#fname").val();
         lname = $("#lname").val();
         email = $("#email").val();
-        id = $("#ID").val();
         pwd = $("#pwd").val();
         type = $("#userType").val();
 
@@ -20,7 +19,6 @@ $(document).ready(function() {
                 fname: fname,
                 lname: lname,
                 email: email,
-                id: id,
                 pwd: pwd,
                 userType: type
             }, function(data) {
