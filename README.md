@@ -17,7 +17,7 @@ CTGS is a course project for SEG3102, built using Nodejs, Express.js, MongoDB an
     
     exmaple: 
     
-    ```$ sudo mongod --dbpath /Users/jerryzhang/Google\ Drive/Study/2016-4-Fall/SEG3102A/3102/mongo``` 
+    ```$ sudo mongod --dbpath /Users/jerryzhang/Google\ Drive/Study/2016-4-Fall/SEG3102A/Proj/3102/mongo```
 	
 4. import json document as data
    

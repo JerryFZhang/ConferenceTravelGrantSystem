@@ -6,7 +6,6 @@ var mongojs = require("mongojs");
 var fs = fs = require('fs');
 var engines = require('consolidate');
 var bodyParser = require('body-parser');
-//
 //db Setup
 var db = mongojs('test', ['user', 'application']);
 //var db = mongojs('admin:adminisdead@ds129028.mlab.com:29028/ctgs', ['user', 'application'])
@@ -37,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'ssshhhhh'
 }));
+
 transporter.verify(function (error, success) {
     if (error) {
         console.log(error);
@@ -45,6 +45,7 @@ transporter.verify(function (error, success) {
         console.log('Server is ready to take our messages');
     }
 });
+
 app.get('/', function (req, res) {
     res.status(200);
     console.log('GET - localhost:3000/');
@@ -52,17 +53,17 @@ app.get('/', function (req, res) {
         switch (sess.userType) {
         case "admin":
             console.log("User will be direcred to admin page!");
-            res.status(200);
+            // res.status(200);
             res.render('admin.html');
             break;
         case "requester":
             console.log("User will be direcred to requester page!");
-            res.status(200);
+            // res.status(200);
             res.render('requester.html');
             break;
         case "evaluator":
             console.log("User will be direcred to evaluator page!");
-            res.status(200);
+            // res.status(200);
             res.render('evaluator.html');
             break;
         case undefined:
@@ -71,7 +72,7 @@ app.get('/', function (req, res) {
             // This would never happen if user was caterogorized properly
             console.log("Error!");
             console.log(sess.userType);
-            res.status(200);
+            // res.status(200);
             res.send('Invaild User Type')
             break;
         }
@@ -85,7 +86,6 @@ app.get('/', function (req, res) {
         res.render('index.html');
     }
 });
-// Serve application page
 app.get('/apply', function (req, res) {
     //200 OK
     res.status(200);
@@ -107,9 +107,9 @@ app.get('/update_user_page', function (req, res) {
         //Serve content
     res.render('update_user.html');
 });
-// Serve admin page
 app.get('/admin', function (req, res) {
     //    sess = req.session;
+    console.log('GET - localhost:3000/admin');
     if (sess != undefined) {
         switch (sess.userType) {
         case "admin":
@@ -141,11 +141,6 @@ app.get('/admin', function (req, res) {
     else {
         res.render('index.html');
     }
-    //200 OK
-    res.status(200);
-    console.log('GET - localhost:3000/admin');
-    //Serve content
-    res.render('admin.html');
 });
 // Serve requester page
 app.get('/requester', function (req, res) {
@@ -179,9 +174,6 @@ app.get('/register', function (req, res) {
         //Serve content
     res.render('register.html');
 });
-
-
-
 app.get('/application', function (req, res) {
     //    sess = req.session;
     //    console.log("req.headers.cookie");
@@ -201,12 +193,39 @@ app.get('/evaluator', function (req, res) {
         //Serve content
     res.render('evaluator.html');
 });
-app.get('/application_creation.html', function (req, res) {
-    //200 OK
-    res.status(200);
-    console.log('localhost:3000/application_creation')
-        //Serve content
-    res.render('application_creation.html');
+app.get('/create-application', function (req, res) {
+    console.log('localhost:3000/create-application');
+    if (sess != undefined) {
+        switch (sess.userType) {
+            case "admin":
+                console.log("User will be direcred to admin page!");
+                res.status(200);
+                res.send('Invaild User Type - You cannot create application as an admin, please user a requester account.');
+                break;
+            case "requester":
+                console.log("User will be direcred to requester page!");
+                res.status(200);
+                res.render('create-application.html');
+                break;
+            case "evaluator":
+                console.log("User will be direcred to evaluator page!");
+                res.status(200);
+                res.render('Invaild User Type - You cannot create application as an admin, please user a requester account.');
+                break;
+            case undefined:
+                res.render('index.html');
+            default:
+                // This would never happen if user was caterogorized properly
+                console.log("Error!");
+                console.log(sess.userType);
+                res.status(200);
+                res.send('Invaild User Type')
+                break;
+        }
+    }
+    else {
+        res.render('index.html');
+    }
 });
 app.get('/logout', function (req, res) {
     req.session.destroy(function (err) {
@@ -282,7 +301,7 @@ app.post('/login', function (req, res) {
                     case "admin":
                         console.log("User will be direcred to admin page!");
                         sess.username = records[0].id;
-                        res.status(200);
+                        // res.status(200);
                         res.send('admin');
                         break;
                     case "requester":
@@ -290,7 +309,7 @@ app.post('/login', function (req, res) {
                         sess.userType = "requester";
                         //                            sess.id = "requester";
                         //                            console.log(JSON.stringify(sess));
-                        res.status(200);
+                        // res.status(200);
                         res.send('requester');
                         break;
                     case "evaluator":
@@ -298,14 +317,14 @@ app.post('/login', function (req, res) {
                         sess.userType = "evaluator";
                         //                            sess.id = "evaluator";
                         //                            console.log(JSON.stringify(sess));
-                        res.status(200);
+                        // res.status(200);
                         res.send('evaluator');
                         break;
                     default:
                         // This would never happen if user was caterogorized properly
                         console.log("Error!");
                         console.log(sess.userType);
-                        res.status(200);
+                        // res.status(200);
                         res.send('Invaild User Type')
                         break;
                     }
@@ -457,12 +476,12 @@ app.post('/find_user', function (req, res) {
         }
     });
 });
-app.post('/application_creation.html', function (req, res) {
+app.post('/create-application', function (req, res) {
     //200 OK
     console.log(req.body);
     var data = req.body;
     db.application.insert(data);
-    res.render("application_creation.html");
+    res.render("create-application");
 });
 // Custom 404 page.
 app.use(function (req, res) {
