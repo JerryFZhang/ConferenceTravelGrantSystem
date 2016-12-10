@@ -60,5 +60,6 @@ CTGS is a course project for SEG3102, built using Nodejs, Express.js, MongoDB an
 # License
 
 MIT, see LICENSE.txt.
+Except for Academic use, which is completely prohibited.
 
 
