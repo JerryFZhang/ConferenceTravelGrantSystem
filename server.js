@@ -360,10 +360,10 @@ app.post('/final_decision', function (req, res) {
 });
 app.post('/get_application', function (req, res) {
     //200 OK
-    
     res.status(200);
     console.log('GET - localhost:3000/getapp');
     var data = req.body.appid;
+    console.log(data);
         //Serve content/
     db.application.find({_id: data}, function (err, records) {
         if (err) {
