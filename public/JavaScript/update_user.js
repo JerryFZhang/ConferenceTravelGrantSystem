@@ -7,7 +7,7 @@ $(document).ready(function() {
       if (id=="") {
           alert("Please select a user");
       } else {
-          $.post("http://localhost:3000/delete_user", {
+          $.post("delete-user", {
 
               id: id
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
         if (id=="") {
             alert("Please select a user");
         } else {
-            $.post("http://localhost:3000/update_user", {
+            $.post("update-user", {
                 fname: fname,
                 lname: lname,
                 email: email,
@@ -51,7 +51,7 @@ $(document).ready(function() {
         if (semail === "") {
             alert("Please enter the email");
         } else {
-            $.post("http://localhost:3000/find_user", {
+            $.post("find-user", {
                 email: semail
             }, function(data) {
                 $("#fname").val(data.fname);

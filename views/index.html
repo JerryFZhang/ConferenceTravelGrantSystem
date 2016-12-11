@@ -77,7 +77,7 @@
                     alert("Please enter the email and password");
                 }
                 else {
-                    $.post("http://localhost:3000/login", {
+                    $.post("login", {
                         uname: email
                         , password: pass
                     }, function (data) {
@@ -85,13 +85,13 @@
                         //           alert(""+data);
                         switch (data) {
                         case 'admin':
-                            window.location = "http://localhost:3000/admin";
+                            window.location = "admin";
                             break;
                         case 'requester':
-                            window.location = "http://localhost:3000/requester";
+                            window.location = "requester";
                             break;
                         case 'evaluator':
-                            window.location = "http://localhost:3000/evaluator";
+                            window.location = "evaluator";
                             break;
                         default:
                             alert(data);
