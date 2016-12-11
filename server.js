@@ -7,7 +7,7 @@ var fs = fs = require('fs');
 var engines = require('consolidate');
 var bodyParser = require('body-parser');
 //db Setup
-var db = mongojs('test', ['user', 'application','application_user']);
+var db = mongojs('test', ['user', 'application', 'application_user']);
 //var db = mongojs('admin:adminisdead@ds129028.mlab.com:29028/ctgs', ['user', 'application'])
 var app = express();
 var path = require('path');
@@ -38,7 +38,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'ssshhhhh'
 }));
-
 transporter.verify(function (error, success) {
     if (error) {
         console.log(error);
@@ -47,7 +46,6 @@ transporter.verify(function (error, success) {
         console.log('Server is ready to take our messages');
     }
 });
-
 app.get('/', function (req, res) {
     res.status(200);
     console.log('GET - localhost:3000/');
@@ -95,8 +93,6 @@ app.get('/apply', function (req, res) {
         //Serve content
     res.render('apply.html');
 });
-
-
 app.get('/admin', function (req, res) {
     //    sess = req.session;
     console.log('GET - localhost:3000/admin');
@@ -136,25 +132,23 @@ app.get('/create-user', function (req, res) {
     //200 OK
     res.status(200);
     console.log('GET - localhost:3000/create_user')
-    //Serve content
+        //Serve content
     res.render('add_user.html');
 });
 app.get('/update-user', function (req, res) {
     //200 OK
     res.status(200);
     console.log('GET - localhost:3000/update_user')
-    //Serve content
+        //Serve content
     res.render('update_user.html');
 });
 app.get('/set-parameter', function (req, res) {
     //200 OK
     res.status(200);
     console.log('GET - localhost:3000/update_user')
-    //Serve content
+        //Serve content
     res.render('update_user.html');
 });
-
-
 // Serve requester page
 app.get('/requester', function (req, res) {
     //200 OK
@@ -210,30 +204,30 @@ app.get('/create-application', function (req, res) {
     console.log('localhost:3000/create-application');
     if (sess != undefined) {
         switch (sess.userType) {
-            case "admin":
-                console.log("User will be direcred to admin page!");
-                res.status(200);
-                res.send('Invaild User Type - You cannot create application as an admin, please user a requester account.');
-                break;
-            case "requester":
-                console.log("User will be direcred to requester page!");
-                res.status(200);
-                res.render('create-application.html');
-                break;
-            case "evaluator":
-                console.log("User will be direcred to evaluator page!");
-                res.status(200);
-                res.render('Invaild User Type - You cannot create application as an admin, please user a requester account.');
-                break;
-            case undefined:
-                res.render('index.html');
-            default:
-                // This would never happen if user was caterogorized properly
-                console.log("Error!");
-                console.log(sess.userType);
-                res.status(200);
-                res.send('Invaild User Type')
-                break;
+        case "admin":
+            console.log("User will be direcred to admin page!");
+            res.status(200);
+            res.send('Invaild User Type - You cannot create application as an admin, please user a requester account.');
+            break;
+        case "requester":
+            console.log("User will be direcred to requester page!");
+            res.status(200);
+            res.render('create-application.html');
+            break;
+        case "evaluator":
+            console.log("User will be direcred to evaluator page!");
+            res.status(200);
+            res.render('Invaild User Type - You cannot create application as an admin, please user a requester account.');
+            break;
+        case undefined:
+            res.render('index.html');
+        default:
+            // This would never happen if user was caterogorized properly
+            console.log("Error!");
+            console.log(sess.userType);
+            res.status(200);
+            res.send('Invaild User Type')
+            break;
         }
     }
     else {
@@ -274,7 +268,7 @@ app.post('/register', function (req, res) {
 //    res.render('evaluator.html');
 //});
 // Recieve and parse password.
-app.post('/login',              function (req, res) {
+app.post('/login', function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/login')
@@ -353,7 +347,7 @@ app.post('/login',              function (req, res) {
     });
     //    }
 });
-app.post('/final-decision',     function (req, res) {
+app.post('/final-decision', function (req, res) {
     //200 OK
     res.status(200);
     //get user email by query user
@@ -361,45 +355,52 @@ app.post('/final-decision',     function (req, res) {
     console.log(req.body.appid);
     console.log('----------');
     // var a=db.application_user.find({appid:req.body.appid});
-    
-    
-//    var appid = req.body.appid;
-//    appid
-//    var data = '{' + '"_id": ' + appid + '}';
-//    data = JSON.parse(data);
-//    console.log(appid);
+    //    var appid = req.body.appid;
+    //    appid
+    //    var data = '{' + '"_id": ' + appid + '}';
+    //    data = JSON.parse(data);
+    //    console.log(appid);
     console.log('----------');
-    
     db.application_user.find(function (err, records) {
         if (err) {
             console.log("Database Error" + err);
             res.send("Database Error" + err);
         }
-        else{
+        else {
             console.log('----------1');
-       for (var i = 0; i < records.length; i++)
-{
-    console.log('----------2');
-//    var thisappid = JSON.stringify(records[i].appid);
-    if (records[i].appid ==  req.body.appid){
-        console.log(records[i].uid);
-    }else{
-        console.log('----------3');
-        console.log(records[0]);
-        console.log("0000000");
-        console.log(records[i].appid);
-        console.log( req.body.appid);
-    }
-}
+            for (var i = 0; i < records.length; i++) {
+                console.log('----------2');
+                //    var thisappid = JSON.stringify(records[i].appid);
+                if (records[i].appid == req.body.appid) {
+                    console.log(records[i].uid);
+                    var uid = records[i].uid;
+                    db.user.find(function (err, records) {
+                        console.log(records);
+                        for (var i = 0; i < records.length; i++) {
+                            if (records[i]._id == uid ){
+                                console.log("------------");
+                                console.log(uid);
+                                console.log("------------");
+                            }else{
+                                console.log(records[i]);
+                                console.log(uid);
+                            }
+                        }
+                    });
+                }
+                else {
+                    console.log('----------3');
+                    console.log(records[0]);
+                    console.log("0000000");
+                    console.log(records[i].appid);
+                    console.log(req.body.appid);
+                }
+            }
         }
-      });
+    });
     // console.log(JSON.stringify(b));
     // var b=db.user.find({_id:a.uid});
     // console.log(JSON.stringify(b));
-
-
-
-
     // if (req.body.Decision == "approve") {
     //     transporter.sendMail({
     //         from:
@@ -433,14 +434,15 @@ app.post('/final-decision',     function (req, res) {
     //Serve content
     res.render('evaluator.html');
 });
-app.post('/get-application',    function (req, res) {
+app.post('/get-application', function (req, res) {
     //200 OK
-
     res.status(200);
     console.log('GET - localhost:3000/getapp');
     var data = req.body.appid;
-        //Serve content/
-    db.application.find({_id: data}, function (err, records) {
+    //Serve content/
+    db.application.find({
+        _id: data
+    }, function (err, records) {
         if (err) {
             console.log("Database Error" + err);
             res.send("Database Error" + err);
@@ -451,9 +453,9 @@ app.post('/get-application',    function (req, res) {
             res.send(records);
         }
     });
-//    res.render('register.html');
+    //    res.render('register.html');
 });
-app.post('/add-user',           function (req, res) {
+app.post('/add-user', function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/add_user')
@@ -479,7 +481,7 @@ app.post('/add-user',           function (req, res) {
     db.user.insert(data);
     res.render("add_user.html")
 });
-app.post('/delete-user',        function (req, res) {
+app.post('/delete-user', function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/delete_user')
@@ -496,7 +498,7 @@ app.post('/delete-user',        function (req, res) {
         id: idI
     });
 });
-app.post('/submit',             function (req, res) {
+app.post('/submit', function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/submit')
@@ -508,14 +510,14 @@ app.post('/update-application', function (req, res) {
     console.log('POST - localhost:3000/update_application')
         //Parse content
 });
-app.post('/request',            function (req, res) {
+app.post('/request', function (req, res) {
     //200 OK
     res.status(200);
     console.log('POST - localhost:3000/request');
     console.log(req.body);
     //Parse content
 });
-app.post('/find-user',          function (req, res) {
+app.post('/find-user', function (req, res) {
     //200 OK
     console.log(req.body.email);
     db.user.find({
