@@ -59,7 +59,7 @@
             <div class="loginmodal-container">
                 <h1>Login to Your Account</h1>
                 <br>
-                <input type="text" id="email" placeholder="Email">
+                <input type="text" id="name" placeholder="Username">
                 <input type="password" id="password" placeholder="Password">
                 <input type="submit" id="submit" class="login loginmodal-submit" value="Login">
                 <p> </p>
@@ -68,17 +68,17 @@
     </div>
     <script>
         $(document).ready(function () {
-            var email, pass;
+            var uname, pass;
             $("#submit").click(function () {
-                email = $("#email").val();
+                uname = $("#name").val();
                 pass = $("#password").val();
                 console.log(uname + "  " + pass);
-                if (email === '' && pass === '') {
+                if (uname === '' && pass === '') {
                     alert("Please enter the email and password");
                 }
                 else {
                     $.post("login", {
-                        uname: email
+                        uname: uname
                         , password: pass
                     }, function (data) {
                         console.log(data);
