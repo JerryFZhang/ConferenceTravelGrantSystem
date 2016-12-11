@@ -22,3 +22,5 @@ mongo/WiredTigerLAS.wt
 public/__MAC*
 
 
+
+.idea/*

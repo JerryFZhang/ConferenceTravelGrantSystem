@@ -16,7 +16,7 @@ $(document).ready(function() {
         if (false) {
             alert("Please enter the email and password");
         } else {
-            $.post("http://localhost:3000/add_user", {
+            $.post("add_user", {
                 fname: fname,
                 lname: lname,
                 email: email,
