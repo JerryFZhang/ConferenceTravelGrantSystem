@@ -437,20 +437,28 @@ app.post('/final-decision', function (req, res) {
 app.post('/get-application', function (req, res) {
     //200 OK
     res.status(200);
-    console.log('GET - localhost:3000/getapp');
+    console.log('POST - localhost:3000/getapp');
     var data = req.body.appid;
+    console.log(data);
     //Serve content/
-    db.application.find({
-        _id: data
-    }, function (err, records) {
+    db.application.find(function (err, records) {
         if (err) {
             console.log("Database Error" + err);
             res.send("Database Error" + err);
         }
         else {
-            //            console.log("awer");
-            console.log(records);
-            res.send(records);
+for (var i = 0; i<records.length; i++){
+    
+    if (records[i]._id == req.body.appid){
+        console.log(records[i]);
+//        res.send/ ("------------");
+        res.send (records[i]);
+    }else{
+        console.log(records[i]);
+    }
+}
+//            console.log(records);
+//            res.send(records);
         }
     });
     //    res.render('register.html');
