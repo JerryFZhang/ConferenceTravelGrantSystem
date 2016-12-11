@@ -7,7 +7,7 @@ var fs = fs = require('fs');
 var engines = require('consolidate');
 var bodyParser = require('body-parser');
 //db Setup
-var db = mongojs('test', ['user', 'application']);
+var db = mongojs('test', ['user', 'application','application_user']);
 //var db = mongojs('admin:adminisdead@ds129028.mlab.com:29028/ctgs', ['user', 'application'])
 var app = express();
 var path = require('path');
@@ -357,42 +357,64 @@ app.post('/final-decision',     function (req, res) {
     //200 OK
     res.status(200);
     //get user email by query user
-    if (req.body.Decision == "approve") {
-        transporter.sendMail({
-            from: 'CTGS@uottawa.ca'
-            , to: "rogerliuray@gmail.com"
-            , subject: 'Application approved'
-            , text: 'Hi, your application has been approved! Congratulations! :D'
-        }, function (error, response) {
-            if (error) {
-                console.log(error);
-            }
-            else {
-                console.log('Approved Message sent');
-            }
-        });
-    }
-    else {
-        transporter.sendMail({
-            from: 'CTGS@uottawa.ca'
-            , to: "rogerliuray@gmail.com"
-            , subject: 'Application refused'
-            , text: 'Hi,i am sorry to inform you that your application has been refused!'
-        }, function (error, response) {
-            if (error) {
-                console.log(error);
-            }
-            else {
-                console.log('Refused Message sent');
-            }
-        });
-    }
+    //find user email:
+    console.log(req.body.appid);
+    // var a=db.application_user.find({appid:req.body.appid});
+    var data=JSON.stringify(req.body.appid);
+    db.application_user.find({_id:data}, function (err, records) {
+        if (err) {
+            console.log("Database Error" + err);
+            res.send("Database Error" + err);
+        }
+        else{
+          console.log("sjdsdiajsidjaisdjiajsdiajsidjaidjaisd");
+console.log(records);
+
+        }
+      });
+    // console.log(JSON.stringify(b));
+    // var b=db.user.find({_id:a.uid});
+    // console.log(JSON.stringify(b));
+
+
+
+
+    // if (req.body.Decision == "approve") {
+    //     transporter.sendMail({
+    //         from:
+    //         , to: "rogerliuray@gmail.com"
+    //         , subject: 'Application approved'
+    //         , text: 'Hi, your application has been approved! Congratulations! :D'
+    //     }, function (error, response) {
+    //         if (error) {
+    //             console.log(error);
+    //         }
+    //         else {
+    //             console.log('Approved Message sent');
+    //         }
+    //     });
+    // }
+    // else {
+    //     transporter.sendMail({
+    //         from: 'CTGS@uottawa.ca'
+    //         , to: "rogerliuray@gmail.com"
+    //         , subject: 'Application refused'
+    //         , text: 'Hi,i am sorry to inform you that your application has been refused!'
+    //     }, function (error, response) {
+    //         if (error) {
+    //             console.log(error);
+    //         }
+    //         else {
+    //             console.log('Refused Message sent');
+    //         }
+    //     });
+    // }
     //Serve content
     res.render('evaluator.html');
 });
 app.post('/get-application',    function (req, res) {
     //200 OK
-    
+
     res.status(200);
     console.log('GET - localhost:3000/getapp');
     var data = req.body.appid;

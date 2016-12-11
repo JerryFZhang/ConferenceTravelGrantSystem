@@ -208,7 +208,7 @@ var appid=0;
   $("#application_list").on('click', '.spnSelected', function() {
     var self = $(this).closest("tr");
     var appid = self.find(".spnSelected").attr("appid");
-    
+
     $.ajax({
       type: "POST",
       url: "get-application",
@@ -231,18 +231,19 @@ var appid=0;
         $("#url").empty();
         $("#url").text("URL: "+result.url);
         $("#applictaion_id").empty();
-        $("#applictaion_id").append("<h3 class='spnSelected'>application id: "+result.appid+"</h3>");
+        $("#applictaion_id").append("<h3 class='spnSelected'id='AppFetchID' getid="+result.appid+" >application id: "+result.appid+"</h3>");
           }
         });
       });
 
       $("#submit").click(function() {
           type = $("#userType").val();
-          id=appid;
+          id=$("#getid").val();
               $.post("final-decision",{
                   Decision: type,
-                  appid:id
+                  appid:"5846f0a154a2d688877b9135"
               }, function(data) {
+                alert("Success!");
                   // if (data === 'user') {
                   //   alert(data+"data");
                   //   window.location = "http://localhost:3000/users";
@@ -262,7 +263,7 @@ var appid=0;
   //a and b
   $.ajax({
     type: "GET",
-    url: "get_application_list_all",
+    url: "get-application-list-all",
     data: {},
     success: function(result) {
       var $application_list = $("#application_list");
