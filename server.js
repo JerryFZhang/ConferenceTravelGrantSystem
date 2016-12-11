@@ -359,17 +359,38 @@ app.post('/final-decision',     function (req, res) {
     //get user email by query user
     //find user email:
     console.log(req.body.appid);
+    console.log('----------');
     // var a=db.application_user.find({appid:req.body.appid});
-    var data=JSON.stringify(req.body.appid);
-    db.application_user.find({_id:data}, function (err, records) {
+    
+    
+//    var appid = req.body.appid;
+//    appid
+//    var data = '{' + '"_id": ' + appid + '}';
+//    data = JSON.parse(data);
+//    console.log(appid);
+    console.log('----------');
+    
+    db.application_user.find(function (err, records) {
         if (err) {
             console.log("Database Error" + err);
             res.send("Database Error" + err);
         }
         else{
-          console.log("sjdsdiajsidjaisdjiajsdiajsidjaidjaisd");
-console.log(records);
-
+            console.log('----------1');
+       for (var i = 0; i < records.length; i++)
+{
+    console.log('----------2');
+//    var thisappid = JSON.stringify(records[i].appid);
+    if (records[i].appid ==  req.body.appid){
+        console.log(records[i].uid);
+    }else{
+        console.log('----------3');
+        console.log(records[0]);
+        console.log("0000000");
+        console.log(records[i].appid);
+        console.log( req.body.appid);
+    }
+}
         }
       });
     // console.log(JSON.stringify(b));
