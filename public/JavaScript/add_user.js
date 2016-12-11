@@ -9,16 +9,18 @@ $(document).ready(function() {
         fname = $("#fname").val();
         lname = $("#lname").val();
         email = $("#email").val();
+        id = $("#ID").val();
         pwd = $("#pwd").val();
         type = $("#userType").val();
 
         if (false) {
             alert("Please enter the email and password");
         } else {
-            $.post("add-user", {
+            $.post("http://localhost:3000/add_user", {
                 fname: fname,
                 lname: lname,
                 email: email,
+                id: id,
                 pwd: pwd,
                 userType: type
             }, function(data) {
